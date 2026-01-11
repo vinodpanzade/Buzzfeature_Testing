@@ -122,5 +122,4 @@ Quality Engineer | Automation Enthusiast
 Focused on building **scalable, maintainable, and production-ready test automation frameworks**.
 
 
-## 📂 Project Structure (High Level)
 
