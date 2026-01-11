@@ -1,132 +1,126 @@
-📌 Project Overview
+# 🚀 Cypress UI Automation Framework – OrangeHRM
 
-This project automates critical user workflows in OrangeHRM with a dynamic and maintainable approach, avoiding hardcoded assumptions and mimicking how a real user interacts with the system.
+A scalable, real-world **Cypress UI automation framework** built to validate core modules of the **OrangeHRM application**, focusing on **dynamic UI behavior, maintainability, and professional QA practices**.
 
-The framework validates:
+---
 
-Navigation stability
+## 📌 Project Overview
 
-UI component integrity
+This project automates critical user workflows in OrangeHRM using a **dynamic and DOM-aware approach**, avoiding hardcoded assumptions and ensuring stability across UI changes.
 
-Data consistency across screens
+The framework is designed to:
+- Validate application navigation
+- Ensure UI component integrity
+- Handle dynamic content safely
+- Reflect real-world QA automation strategies
 
-Dynamic content rendering (posts, tabs, cards)
+---
 
-🧩 Modules Automated
-✅ 1. My Info Module
+## 🧩 Modules Automated
 
-Focus: Navigation + Structural Validation
+---
 
-What’s covered:
+## 1. My Info Module
 
-Navigates to My Info
+**Focus:** Navigation & Structural Validation
 
-Verifies profile image presence
+### What’s covered
+- Navigates to **My Info**
+- Verifies profile image presence
+- Iterates through all My Info tabs dynamically:
+  - Personal Details
+  - Contact Details
+  - Emergency Contacts
+  - Dependents
+  - Immigration
+  - Job
+  - Salary
+  - Report-to (UI-normalized to **Report to**)
+  - Qualifications
+  - Memberships
+- Validates correct page heading for each tab
 
-Iterates through all tabs dynamically:
+**Design decision:**  
+Instead of validating every field, the test confirms **tab navigation stability**, which is ideal for **smoke and regression testing**.
 
-Personal Details
+---
 
-Contact Details
+## 2. Buzz Module
 
-Emergency Contacts
+**Focus:** Dynamic Feed Validation & Component Integrity
 
-Dependents
+### What’s covered
+- Navigates to **Buzz Newsfeed**
+- Validates profile image URL format
+- Verifies feed filter buttons:
+  - Most Recent Posts
+  - Most Liked Posts
+  - Most Commented Posts
+- Dynamically validates any number of posts:
+  - Profile image
+  - Header text
+  - Three-dot menu availability
+- Treats each Buzz card as a single business entity
+- Verifies footer actions per card:
+  - Like
+  - Comment
+  - Share
 
-Immigration
+### Advanced approach used
+- Scoped validations using `each()` and `within()`
+- DOM-aware scoping to handle sibling structures
+- No dependency on fixed post count or user-specific data
 
-Job
+---
 
-Salary
+## 🧠 Key Automation Concepts Applied
+- Page Object Model (POM)
+- Dynamic DOM traversal
+- Data-driven testing using arrays and mappings
+- UI text normalization (`Report-to` → `Report to`)
+- Avoidance of flaky selectors
+- Clear separation of test intent vs UI structure
 
-Report-to (handled UI text mismatch → Report to)
+---
 
-Qualifications
+## 🛠️ Tech Stack
+- Cypress
+- JavaScript
+- Cypress Cucumber (BDD – optional support)
+- Git and GitHub
+- Node.js
 
-Memberships
-
-Validates correct page heading for each tab
-
-✅ 2. Buzz Module
-
-Focus: Dynamic Feed Validation & Component Integrity
-
-What’s covered:
-
-Navigates to Buzz Newsfeed
-
-Validates profile image URL format
-
-Verifies feed filter buttons:
-
-Most Recent Posts
-
-Most Liked Posts
-
-Most Commented Posts
-
-Dynamically validates any number of posts:
-
-Profile image
-
-Header text
-
-Three-dot menu availability
-
-Treats each Buzz card as a single business entity
-
-Verifies footer actions per card:
-
-Like (❤️)
-
-Comment (💬)
-
-Share (🔁)
-
-💡 Advanced approach used:
-
-Scoped validations using each() + within()
-
-DOM-aware scoping to handle sibling structures
-
-No dependency on fixed post count or user data
-
-🧠 Key Automation Concepts Applied
-
-✔ Page Object Model (POM)
-
-✔ Dynamic DOM traversal
-
-✔ Data-driven testing using arrays & mappings
-
-✔ UI text normalization (Report-to → Report to)
-
-✔ Avoidance of flaky selectors
-
-✔ Clean separation of test intent vs UI structure
-
-🛠️ Tech Stack
-
-Cypress
-
-JavaScript
-
-Cypress Cucumber (BDD – optional support)
-
-Git & GitHub
-
-Node.js
-
-cypress/
- ├── e2e/
- │   ├── buzz/
- │   ├── myinfo/
- ├── pages/
- │   ├── Buzzpage.js
- │   ├── Myinfo.js
- ├── support/
- │   ├── commands.js
+---
 
 
-💡 Design decision:
-Instead of over-testing every field, the test ensures each tab loads correctly, which is ideal for smoke + regression coverage.
+---
+
+## 🧪 Testing Philosophy
+
+> **Test what can break, not everything that exists.**
+
+- Navigation is fully covered
+- Critical UI components are validated
+- Deep form testing is kept selective to ensure stability
+
+---
+
+## 📈 Future Enhancements
+- API + UI hybrid validation
+- Custom Cypress commands
+- Soft assertions and enhanced reporting
+- CI/CD integration (Jenkins / GitHub Actions)
+- Role-based Buzz permissions validation
+
+---
+
+## 👤 Author
+
+**Vinod Panzade**  
+Quality Engineer | Automation Enthusiast  
+
+Focused on building **scalable, maintainable, and production-ready test automation frameworks**.
+
+
+## 📂 Project Structure (High Level)
+
